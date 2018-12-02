@@ -2,24 +2,30 @@
 
 require_once __DIR__ . '/autoload.php';
 
-// Which day was passed?
-$options = getopt("d:");
+// Which day and part was passed?
+$options = getopt("d:p:");
 $day = $options['d'];
+$part = $options['p'];
 
 switch($day) {
-    case '01':
-        $today = new Day01();
-        $today->part1();
-        $today->part2();
-        break;
+    // Leave room for days which need special treatment
 
     default:
         $dayClass = "\AOC\php\Day$day";
         if (!class_exists($dayClass)) {
-            die("No valid day argument found.\n");
+            die("No valid day argument found.");
         }
         $today = new $dayClass();
-        $today->part1();
-        $today->part2();
+
+        if (!isset($part)) {
+            $today->part1();
+            $today->part2();
+        }
+        else if ($part == 1) {
+            $today->part1();
+        }
+        else if ($part == 2) {
+            $today->part2();
+        }
         break;
 }
