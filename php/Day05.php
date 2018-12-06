@@ -11,12 +11,12 @@ class Day05 extends Solution implements TwoParter {
         $this->input = trim(file('../inputs/05.txt')[0]);
     }
 
-    function sameApartFromCase($a, $b) {
+    function sameApartFromCase(string $a, string $b): bool {
         return (strtoupper($a) == $b && strtolower($b) == $a) ||
                 (strtoupper($b) == $a && strtolower($a) == $b);
     }
 
-    function reduce($input) {
+    function reduce(string $input): string {
         $reduced = $input;
         $pattern1 = '/(aA|bB|cC|dD|eE|fF|gG|hH|iI|jJ|kK|lL|mM|nN|oO|pP|qQ|rR|sS|tT|uU|vV|wW|xX|yY|zZ)/';
         $pattern2 = '/(Aa|Bb|Cc|Dd|Ee|Ff|Gg|Hh|Ii|Jj|Kk|Ll|Mm|Nn|Oo|Pp|Qq|Rr|Ss|Tt|Uu|Vv|Ww|Xx|Yy|Zz)/';
