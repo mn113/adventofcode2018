@@ -25,6 +25,9 @@ class Day10 extends Solution implements TwoParter
         ];
     }
 
+    /*
+     * Converts the flat list of points to a multidimensional data structure
+     */
     function pointsToHash(array $points): array {
         $hash = [];
         foreach($points as $p) {
@@ -33,7 +36,10 @@ class Day10 extends Solution implements TwoParter
         return $hash;
     }
 
-    function printGrid($minX, $maxX, $minY, $maxY ) {
+    /*
+     * Prints a rectangular area from the grid
+     */
+    function printGrid(int $minX, int $maxX, int $minY, int $maxY ) {
         $latestHash = $this->pointsToHash(($this->points));
         for ($y = $minY; $y <= $maxY; $y++) {
             for ($x = $minX; $x <= $maxX; $x++) {
@@ -43,12 +49,18 @@ class Day10 extends Solution implements TwoParter
         }
     }
 
+    /*
+     * Finds a minimum value for given property out of an array
+     */
     function min_val(array $points, string $key): int {
         return min(array_map(function($p) use ($key) {
             return $p[$key];
         }, $points));
     }
 
+    /*
+     * Finds a maximum value for given property out of an array
+     */
     function max_val(array $points, string $key): int {
         return max(array_map(function($p) use ($key) {
             return $p[$key];
