@@ -99,6 +99,5 @@ class Day22 extends Solution implements TwoParter
     }
 
     function part2() {
-        $upperTimeBound =
     }
 }

@@ -31,7 +31,7 @@ class Day25 extends Solution implements TwoParter
 
         // build distance table, referring to points by index
         $table = [];
-        $constellations = new Set();
+        $constellations = [];
         for ($i = 0; $i < count($points) - 1; $i++) {
             $table[$i] = [$i];
             $constellations[$i] = [$i];
